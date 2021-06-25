@@ -373,7 +373,7 @@ if [ -d "/opt/mtprotoproxy" ]; then
 			fi
 		else
 			if [ ${limits[$KEY]+abc} ]; then
-				MAX_USER=$((limits[$KEY] / 8))
+				MAX_USER=$((limits[$KEY]))
 				echo "Current limit is $MAX_USER concurrent users. (${limits[$KEY]} connections)"
 			else
 				echo "This user have no restrictions."
@@ -384,7 +384,7 @@ if [ -d "/opt/mtprotoproxy" ]; then
 				exit 1
 			fi
 		fi
-		MAX_USER=$((MAX_USER * 8))
+		MAX_USER=$((MAX_USER))
 		if [ "$MAX_USER" = "0" ]; then
 			unset limits["$KEY"]
 		else
